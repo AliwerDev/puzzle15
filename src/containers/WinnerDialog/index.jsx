@@ -11,12 +11,13 @@ import type { GameMatrix } from '../../types';
 type Props = {
   matrix: GameMatrix,
   isStarted: boolean,
+  newGame: () => void,
 };
 
-const WinnerDialog = ({ matrix, isStarted }: Props) => {
+const WinnerDialog = ({ matrix, isStarted, newGame }: Props) => {
   const [win, setWin] = useState(false);
-  const width = window.outerWidth;
-  const height = window.outerHeight;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
   useEffect(() => {
     setWin(isEqual(matrix, MATRIX));
@@ -27,7 +28,12 @@ const WinnerDialog = ({ matrix, isStarted }: Props) => {
       {win && isStarted ? (
         <Fragment>
           <Confetti gravity={0.2} width={width} height={height} />
-          <Modal onClose={() => setWin(false)}>
+          <Modal
+            onClose={() => {
+              setWin(false);
+              newGame();
+            }}
+          >
             Congratulation! You are winner!!!
           </Modal>
         </Fragment>

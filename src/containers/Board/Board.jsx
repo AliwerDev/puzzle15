@@ -102,7 +102,7 @@ const Board = ({
         </MatrixWrapper>
       </BoardContainer>
       <Tools newGame={startNewGame} prevStep={prev} nextStep={next} />
-      <WinnerDialog />
+      <WinnerDialog newGame={startNewGame} />
     </FullContainer>
   );
 };

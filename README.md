@@ -1,1 +1,0 @@
-# algorismic-pazzle.github.io

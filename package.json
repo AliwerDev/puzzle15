@@ -6,7 +6,7 @@
     "flow": "^0.2.3",
     "flow-bin": "^0.95.1",
     "framer-motion": "^1.11.1",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^6.0.0",
     "lodash": "^4.17.15",
     "memoize-one": "^5.0.5",
     "react": "^16.8.4",
@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
-    "build": "gh-pages -d build",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "flow": "flow",
@@ -56,7 +56,7 @@
     "husky": "^3.1.0",
     "prettier": "1.16.4"
   },
-  "homepage": "https://albertgabdullin.github.io/puzzle15",
+  "homepage": "https://aliwerdev.github.io/puzzle15",
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint && yarn flow"

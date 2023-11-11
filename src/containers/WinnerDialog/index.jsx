@@ -30,8 +30,8 @@ const WinnerDialog = ({ matrix, isStarted, newGame }: Props) => {
           <Confetti gravity={0.2} width={width} height={height} />
           <Modal
             onClose={() => {
-              setWin(false);
               newGame();
+              setWin(false);
             }}
           >
             Congratulation! You are winner!!!

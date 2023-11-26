@@ -50,10 +50,7 @@ const Modal = ({ children, onClose }: Props) => {
   useOnClickOutside(modalRef, onClose);
   return (
     <ModalWrapper>
-      <Content ref={modalRef}>
-        <CloseButton onClick={onClose} />
-        {children}
-      </Content>
+      <Content ref={modalRef}>{children}</Content>
     </ModalWrapper>
   );
 };

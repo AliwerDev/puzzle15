@@ -1,8 +1,5 @@
-// @flow
-// flow
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import Confetti from 'react-confetti';
 import isEqual from 'lodash/isEqual';
 import Modal from '../../components/Modal';
 import { MATRIX } from '../../consts/matrix';
@@ -12,32 +9,61 @@ type Props = {
   matrix: GameMatrix,
   isStarted: boolean,
   newGame: () => void,
+  counter: number,
 };
 
-const WinnerDialog = ({ matrix, isStarted, newGame }: Props) => {
+const WinnerDialog = ({ matrix, isStarted, newGame, counter }: Props) => {
   const [win, setWin] = useState(false);
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+
+  useEffect(() => {
+    newGame();
+    return newGame();
+  }, []);
 
   useEffect(() => {
     setWin(isEqual(matrix, MATRIX));
   }, [matrix]);
 
+  useEffect(() => {
+    window.parent.postMessage(
+      { status: 'started', numberOfAttempts: counter },
+      '*',
+    );
+  }, [counter]);
+
+  useEffect(() => {
+    if (win) {
+      window.parent.postMessage(
+        { status: 'finished', numberOfAttempts: counter },
+        '*',
+      );
+    }
+  }, [win]);
+
+  useEffect(() => {
+    window.addEventListener('message', data => {
+      if (data.data.type === 'NEW_GAME') {
+        newGame();
+      }
+    });
+  }, []);
+
   return (
     <Fragment>
-      {win && isStarted ? (
+      {/* {win && isStarted ? (
         <Fragment>
-          <Confetti gravity={0.2} width={width} height={height} />
           <Modal
             onClose={() => {
-              newGame();
               setWin(false);
+              newGame();
             }}
           >
             Congratulation! You are winner!!!
+            <h6>Click to restart game</h6>
+            <div />
           </Modal>
         </Fragment>
-      ) : null}
+      ) : null} */}
     </Fragment>
   );
 };
@@ -45,6 +71,7 @@ const WinnerDialog = ({ matrix, isStarted, newGame }: Props) => {
 const mapStateToProps = state => ({
   matrix: state.game.matrix,
   isStarted: state.game.isStarted,
+  counter: state.game.counter,
 });
 
 export default connect(

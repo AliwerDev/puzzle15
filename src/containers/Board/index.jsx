@@ -15,7 +15,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  move: direction => dispatch(moveTile(direction)),
+  move: direction => {
+    direction && dispatch(moveTile(direction));
+  },
   startNewGame: () =>
     dispatch(newGame(shuffle(ownProps.numbers, ownProps.size))),
   next: () => dispatch(nextStep()),

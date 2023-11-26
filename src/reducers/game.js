@@ -52,7 +52,6 @@ const game = (state: GameState = initialState, action: Actions) => {
       }
 
       const newMatrix = updateMatrix(matrix, nullPosition, { line, column });
-
       const newState = {
         ...state,
         matrix: newMatrix,
@@ -60,6 +59,8 @@ const game = (state: GameState = initialState, action: Actions) => {
         index: index + 1,
         steps: [...steps, { line, column }],
       };
+
+      console.log('movetile');
 
       bake_cookie('puzzle15', newState);
 
@@ -83,9 +84,11 @@ const game = (state: GameState = initialState, action: Actions) => {
           },
         ],
       };
+
       delete_cookie('puzzle15');
       return newState;
     }
+
     case NEXT_STEP: {
       const { index, steps, matrix } = state;
       const lastIndex = steps.length > 0 ? steps.length - 1 : 0;

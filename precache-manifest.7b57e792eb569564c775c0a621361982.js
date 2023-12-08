@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "5ec05c197bb39fa1092a",
-    "url": "/puzzle15/static/css/main.a2d27da6.chunk.css"
+    "revision": "cd35b40c7d3aa090ff4a",
+    "url": "/puzzle15/static/css/main.008443cb.chunk.css"
   },
   {
-    "revision": "5ec05c197bb39fa1092a",
-    "url": "/puzzle15/static/js/main.4781d47b.chunk.js"
+    "revision": "cd35b40c7d3aa090ff4a",
+    "url": "/puzzle15/static/js/main.b59a6a3c.chunk.js"
   },
   {
     "revision": "d896ef780c959dae4e7c",
     "url": "/puzzle15/static/js/runtime~main.9b891d03.js"
   },
   {
-    "revision": "98227e2181ff5e774b23",
-    "url": "/puzzle15/static/js/2.41ec6ea8.chunk.js"
+    "revision": "83c2198431182a05e0c6",
+    "url": "/puzzle15/static/js/2.5b74039b.chunk.js"
   },
   {
     "revision": "9203b416b5aa697c72080ee28a119490",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/puzzle15/static/media/gamebackground.8378e863.jpg"
   },
   {
-    "revision": "046be122b68821bb61fbc8e5327bdfae",
+    "revision": "3c5f4bbf0bf091a9930c777c1966e7de",
     "url": "/puzzle15/index.html"
   }
 ];
